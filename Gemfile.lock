@@ -1,0 +1,44 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    front_matter_parser (1.0.1)
+    mocha (2.4.5)
+      ruby2_keywords (>= 0.0.5)
+    nokogiri (1.16.7-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.7-arm-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.7-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x86-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-linux)
+      racc (~> 1.4)
+    power_assert (2.0.4)
+    racc (1.8.1)
+    ruby2_keywords (0.0.5)
+    test-unit (3.6.2)
+      power_assert
+    vcard (0.3.0)
+    yaml (0.3.0)
+
+PLATFORMS
+  aarch64-linux
+  arm-linux
+  arm64-darwin
+  x86-linux
+  x86_64-darwin
+  x86_64-linux
+
+DEPENDENCIES
+  front_matter_parser
+  mocha
+  nokogiri
+  test-unit
+  vcard
+  yaml
+
+BUNDLED WITH
+   2.5.11
