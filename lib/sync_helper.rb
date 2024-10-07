@@ -26,11 +26,12 @@ module SyncHelper
     txt_cards_hash = {}
 
     Dir.glob("#{destination_folder}/*#{extension}").each do |contact_file|
-      parsed = FrontMatterParser::Parser.parse_file(contact_file)
+      loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Date])
+      front_matter = FrontMatterParser::Parser.parse_file(contact_file, loader: loader).front_matter
       basename = File.basename(contact_file)
 
       # front matter uses lowercase uid key
-      txt_cards_hash[parsed.front_matter['uid']] = basename
+      txt_cards_hash[front_matter['uid']] = basename
     end
 
     txt_cards_hash
@@ -88,11 +89,16 @@ module SyncHelper
   private
 
   def build_address(vcard_address)
-    [
+    base_address = [
       vcard_address.street.sub("\n", ', '),
       vcard_address.locality,
-      vcard_address.region,
-      vcard_address.postalcode,
+    ].compact.join(', ')
+
+    region_and_zip = "#{vcard_address.region} #{vcard_address.postalcode}".strip
+
+    [
+      base_address,
+      region_and_zip,
       vcard_address.country
     ].compact.join(', ')
   end

@@ -186,6 +186,7 @@ class TestSyncHelper < Minitest::Test
   end
 
   def resulting_front_matter_for(contact_file)
-    FrontMatterParser::Parser.parse_file(contact_file).front_matter
+    loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Date])
+    FrontMatterParser::Parser.parse_file(contact_file, loader: loader).front_matter
   end
 end

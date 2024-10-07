@@ -7,6 +7,6 @@ tel:
 email:
 - arletha@example.com
 address:
-- Suite 239, 12845 Ali Fords, New Walton, MS, 79297
+- Suite 239, 12845 Ali Fords, New Walton, MS 79297
 notes:
 ---
